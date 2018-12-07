@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class = 'centerstage'>
+{% for post in post_list %} <!-- post_list is what the thing should be from the list CBV -->
+	<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+	<h5>By <a href="{% url 'posts:for_user' username=post.author.username %}">{{post.author}}</a></h5> <!-- the username variable comes from the post model the user the django auth field then username is an attribute of a django user -->
+	<h5>{{post.created_date}}</h5>
+	<p>{{post.snippet}}</p>
+	
+	{% endfor %}
+</div>
+{% endblock %}

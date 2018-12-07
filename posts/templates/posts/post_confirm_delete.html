@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Delete {{post.title}}</h1>
+<form method="POST">
+{% csrf_token %}
+<p>Are you sure you want to delete {{object}}</p> <!-- something in delete view the object injection -->
+<input type="submit" class = "btn btn-danger" value="Delete">
+</form>
+{% endblock %}

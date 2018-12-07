@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<h1> Posts by: {{post_user.username}}</h1> <!-- the post_user comes from the views.py when we do the queryset and the get context data functions 
+we have set the context list to post_user = self.post_user --> 
+{% for post in post_list %}
+	<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+	<h5>By {{post.author}}</h5>
+	<h5>{{post.created_date}}</h5>
+	<p>{{post.snippet}}</p>
+	{% endfor %}
+
+
+{% endblock %}
