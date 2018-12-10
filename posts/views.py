@@ -98,5 +98,8 @@ def add_comment_to_post(request,pk):
 		form = CommentForm()
 	return render(request, 'posts/comment_form.html', {'form':form})
 	
+
+	
+		
 			
 	
