@@ -9,7 +9,7 @@ class Post(models.Model):
 	title = models.CharField(max_length = 255)
 	image = models.ImageField(blank=True, upload_to = 'images/')
 	body = models.TextField()
-	like = models.PositiveIntegerField(blank=True, null=True)
+	like = models.PositiveIntegerField(blank=True, null=True) # decided not to implement like button
 	created_date = models.DateTimeField(auto_now = True)
 	
 	def __str__(self):
@@ -30,7 +30,7 @@ class Comment(models.Model):
 	post = models.ForeignKey('posts.Post',related_name='comments',on_delete=models.CASCADE)
 	author = models.ForeignKey(User,on_delete=models.CASCADE)
 	body = models.TextField()
-	like = models.PositiveIntegerField(blank=True, null= True) # makes it optional
+	like = models.PositiveIntegerField(blank=True, null= True) # decided not to implement like button
 	created_date = models.DateTimeField(auto_now=True)
 	
 	def __str__(self):

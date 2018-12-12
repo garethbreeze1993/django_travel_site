@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% block content %}
-<h1> Posts by: {{post_user.username}}</h1> <!-- the post_user comes from the views.py when we do the queryset and the get context data functions 
+ <h1 class="my-4">Profile Page of <br/>
+            <small>{{post_user.username}}</small>
+          </h1>
+<!-- the post_user comes from the views.py when we do the queryset and the get context data functions 
 we have set the context list to post_user = self.post_user --> 
+          <div class="card mb-4">
+            <div class="card-body">
+
 {% for post in post_list %}
-	<h2><a href="{% url 'posts:post_detail' pk=post.pk %}">{{post.title}}</a></h2>
-	<h5>By {{post.author}}</h5>
-	<h5>{{post.created_date}}</h5>
-	<p>{{post.snippet}}</p>
+	<h2 class="card-title"><a href="{% url 'posts:post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+	<p class="card-text">{{post.snippet}}</p>
+	<a href="{% url 'posts:post_detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>
+	  <div class="card-footer text-muted">
+              Posted on {{post.created_date}}
+            </div>
+			<hr>
 	{% endfor %}
-
-
+</div>
+</div>
 {% endblock %}

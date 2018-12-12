@@ -1,0 +1,28 @@
+a {
+	font-family:Georgia; "Times New Roman", Times, serif;
+	font-size:large;
+cursor: auto}
+a:link {
+	color:blue;}
+a:visited {
+	color: #660066;
+	}
+a:hover {
+	text-decoration: none; 
+	color: #ff9900; 
+	font-weight:bold;
+	}
+a:active {
+	color: #ff0000;
+	text-decoration: none
+	}
+	
+.customa{
+	font-family: 'Montserrat', sans-serif;
+
+}	
+
+.backa{
+	padding: 70px;
+    background: url("seaback.png");
+  }

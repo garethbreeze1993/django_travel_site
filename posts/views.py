@@ -98,7 +98,12 @@ def add_comment_to_post(request,pk):
 		form = CommentForm()
 	return render(request, 'posts/comment_form.html', {'form':form})
 	
-
+@login_required
+def comment_remove(request,pk):
+    comment = get_object_or_404(Comment,pk=pk)
+    post_pk = comment.post.pk # we are deleting this comment so need to grab the pk from the comment before deleting so we can use it in redirect
+    comment.delete()
+    return redirect('posts:post_detail', pk=post_pk)
 	
 		
 			

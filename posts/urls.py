@@ -11,6 +11,8 @@ urlpatterns = [
 	path("by/<username>/",views.UserPosts.as_view(),name="for_user"), # all the posts listed by that user in listview class
 	path('<int:pk>/comment/add', views.add_comment_to_post, name='add_comment'),
 	path('results/', views.Search_Posts.as_view(), name="search_posts"),
+	path('<int:pk>/comment/remove', views.comment_remove, name='remove_comment'),
+
 
 	
 ]
